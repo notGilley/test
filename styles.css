@@ -1,0 +1,141 @@
+/* Base styles for the website */
+
+@font-face {
+    font-family: 'Karmatic Arcade';
+    src: url('Ka1.ttf') format('truetype');
+    color: #d6dadf;
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #fdfdfd;
+    line-height: 1.6;
+    background-image: url('background.png'); /* Replace with your image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #729dd1;
+    
+}
+
+h2 {
+    text-shadow: 
+        -1px -1px 0 #000, /* Top-left shadow */
+        1px -1px 0 #000,  /* Top-right shadow */
+        -1px 1px 0 #000,  /* Bottom-left shadow */
+        1px 1px 0 #000;   /* Bottom-right shadow */
+}
+
+p {
+    margin: 0 0 1em;
+    text-align: center;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header, footer {
+    background-color: #000000;
+    color: #37acda;
+    padding: 1em 0;
+    text-align: center;
+    
+}
+
+header {
+    font-family: 'Karmatic Arcade', cursive;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #000000; /* Ensure the header background is solid */
+}
+
+header .logo {
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    transform: translateY(-50%);
+    height: 100px; /* Adjust as needed */
+}
+
+header a, footer a {
+    color: #4519bd;
+}
+
+main {
+    padding: 6em 0 2em; /* Add top padding to prevent content from being hidden under the fixed header */
+}
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.no-bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.text-outline {
+    text-shadow: 
+        -1px -1px 0 #000, /* Top-left shadow */
+        1px -1px 0 #000,  /* Top-right shadow */
+        -1px 1px 0 #000,  /* Bottom-left shadow */
+        1px 1px 0 #000;   /* Bottom-right shadow */
+    color: #fff; /* Optional: Set the text color */
+}
+
+strong {
+    text-shadow: 
+        -1px -1px 0 #000, /* Top-left shadow */
+        1px -1px 0 #000,  /* Top-right shadow */
+        -1px 1px 0 #000,  /* Bottom-left shadow */
+        1px 1px 0 #000;   /* Bottom-right shadow */
+}

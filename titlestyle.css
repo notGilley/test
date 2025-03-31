@@ -1,0 +1,32 @@
+h1 {
+    font-family: 'Karmatic Arcade', cursive;
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    color: rgb(49, 189, 231);
+    
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 10px 0;
+    text-align: center;
+}
+
+li {
+    font-family: 'Karmatic Arcade', cursive;
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    color: rgb(49, 189, 231);
+   
+}
+
+div {
+    font-family: 'Karmatic Arcade', cursive;
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    color: rgb(152, 209, 226);
+    
+}

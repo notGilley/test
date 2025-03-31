@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build-A-Rig</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding-top: 150px; /* Adjust this value to match the header's height */
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    </style>
+    <script src="scroll-reveal.js" defer></script>
+</head>
+<body>
+    <header style="background-color: #333; color: white; padding: 10px 20px; text-align: center;"data-reveal="true">
+        <a href="index.html">
+            <img src="bar.png" alt="Logo" class="logo">
+        </a>
+        <h1 style="margin: 0; font-size: 2em;">Build-A-Rig PCs</h1>
+        <nav>
+            <ul style="list-style: none; padding: 0; margin: 10px 0; display: flex; justify-content: center;">
+                <li style="margin: 0 15px;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+                <li style="margin: 0 15px;"><a href="about.html" style="color: white; text-decoration: none;">About Me</a></li>
+                <li style="margin: 0 15px;"><a href="parts.html" style="color: white; text-decoration: none;">PC Parts</a></li>
+                <li style="margin: 0 15px;"><a href="faq.html" style="color: white; text-decoration: none;">FAQ</a></li>
+                <li style="margin: 0 15px;"><a href="gallery.html" style="color: white; text-decoration: none;">Gallery</a></li>
+                <li style="margin: 0 15px;"><a href="proccess.html" style="color: white; text-decoration: none;">Process</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about"data-reveal="true">
+        <link rel="stylesheet" href="h2styles.css">
+        <h2><a href="about.html">About Me</a></h2>
+        <p>Welcome! I specialize in building custom PCs tailored to your needs. Whether you're a gamer, a content creator, or just need a reliable machine, I can help.</p>
+    </section>
+
+    <section id="parts"data-reveal="true">
+        <link rel="stylesheet" href="h2styles.css">
+        <h2><a href="parts.html"> PC Parts and How They Interact</a></h2>
+        <p>Learn about the different components of a PC and how they work together to create a powerful system.</p>
+    </section>
+
+    <section id="contact"data-reveal="true">
+        <link rel="stylesheet" href="h2styles.css">
+        <h2><a href="contact.html">Contact Me</a></h2>
+        <p>If you'd like to get in touch, please visit my <a href="contact.html">Contact Page</a>.</p>
+    </section>
+
+    <section id="gallery"data-reveal="true">
+        <h2><a href="gallery.html">Gallery</a></h2>
+
+        <p>Check out some of my recent builds and setups!</p>
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <img src="gallery/1.jpg" alt="Gallery Image 1" style="width: 300px; height: 300px; object-fit: cover;">
+            <img src="gallery/20250308_194048.jpg" alt="Gallery Image 2" style="width: 300px; height: 300px; object-fit: cover;">
+            
+        </div>
+        <p style="text-align: center; margin-top: 10px;">
+            <a href="gallery.html" style="text-decoration: none; color: #333;">View More Pictures</a>
+        </p>
+    </section>
+
+    <section id="process" data-reveal="true">
+        <link rel="stylesheet" href="h2styles.css">
+        <h2><a href="proccess.html">Process</a></h2>
+        <p>Discover the step-by-step process I follow to build your custom PC, ensuring quality and satisfaction at every stage.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Custom PC Builder. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

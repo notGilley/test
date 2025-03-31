@@ -1,0 +1,19 @@
+/* Styles for subtitles */
+h2{ 
+    font-family: 'Karmatic Arcade', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #64c9e2;
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 10px 0;
+    
+}
