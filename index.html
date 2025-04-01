@@ -9,7 +9,9 @@
     <style>
         body {
             margin: 0;
-            padding-top: 150px; /* Adjust this value to match the header's height */
+            padding: 0;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
         header {
             position: fixed;
@@ -17,53 +19,109 @@
             width: 100%;
             z-index: 1000;
         }
+        section {
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            transform: translateY(150%); /* Start further below the viewport */
+            transition: transform 1s ease-in-out; /* Smooth transition */
+        }
+        section:nth-child(odd) {
+            background-color: #0e0d0d;
+        }
+        section:nth-child(even) {
+            background-color: #141313;
+        }
+        section.revealed {
+            transform: translateY(0); /* Move into the viewport */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
     </style>
     <script src="scroll-reveal.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const revealSections = () => {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        section.classList.add('revealed');
+                    } else {
+                        section.classList.remove('revealed'); // Reset when out of view
+                    }
+                });
+            };
+            window.addEventListener('scroll', revealSections);
+            revealSections(); // Initial check
+        });
+    </script>
 </head>
 <body>
-    <header style="background-color: #333; color: white; padding: 10px 20px; text-align: center;"data-reveal="true">
-        <a href="index.html">
+    <header style="background-color: #333; color: white; padding: 10px 20px; text-align: center;" data-reveal="true">
+        <a href="#home">
             <img src="bar.png" alt="Logo" class="logo">
         </a>
         <h1 style="margin: 0; font-size: 2em;">Build-A-Rig PCs</h1>
         <nav>
             <ul style="list-style: none; padding: 0; margin: 10px 0; display: flex; justify-content: center;">
-                <li style="margin: 0 15px;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
-                <li style="margin: 0 15px;"><a href="about.html" style="color: white; text-decoration: none;">About Me</a></li>
-                <li style="margin: 0 15px;"><a href="parts.html" style="color: white; text-decoration: none;">PC Parts</a></li>
-                <li style="margin: 0 15px;"><a href="faq.html" style="color: white; text-decoration: none;">FAQ</a></li>
-                <li style="margin: 0 15px;"><a href="gallery.html" style="color: white; text-decoration: none;">Gallery</a></li>
-                <li style="margin: 0 15px;"><a href="proccess.html" style="color: white; text-decoration: none;">Process</a></li>
+                <li style="margin: 0 15px;"><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                <li style="margin: 0 15px;"><a href="#about" style="color: white; text-decoration: none;">About Me</a></li>
+                <li style="margin: 0 15px;"><a href="#parts" style="color: white; text-decoration: none;">PC Parts</a></li>
+                <li style="margin: 0 15px;"><a href="#faq" style="color: white; text-decoration: none;">FAQ</a></li>
+                <li style="margin: 0 15px;"><a href="#gallery" style="color: white; text-decoration: none;">Gallery</a></li>
+                <li style="margin: 0 15px;"><a href="#process" style="color: white; text-decoration: none;">Process</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about"data-reveal="true">
-        <link rel="stylesheet" href="h2styles.css">
-        <h2><a href="about.html">About Me</a></h2>
-        <p>Welcome! I specialize in building custom PCs tailored to your needs. Whether you're a gamer, a content creator, or just need a reliable machine, I can help.</p>
+    <section id="about" data-reveal="true">
+        <h2>About Me</h2>
+        <br></br>
+        <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+                <h3 style="text-align: center;">Snippet</h3>
+                <p>Welcome! I specialize in building custom PCs tailored to your needs. Whether you're a gamer, a content creator, or just need a reliable machine, I can help.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+                <h3 style="text-align: center;">Education</h3>
+                <p>Bachelors in Computer Science - FSU</p>
+                <p>CompTIA A+ Certified</p>
+                <p> ITIL4 Certified</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+                <h3 style="text-align: center;">Goals</h3>
+                <p>My goal with this is to be able to open up my own shop to provide a place that provides a dedicated place for technology, either build a computer, sitting around playing games with friends and family, and opening up to do repairs on exsisting hardware.</p>
+            </div>
+        </div>
     </section>
 
-    <section id="parts"data-reveal="true">
-        <link rel="stylesheet" href="h2styles.css">
-        <h2><a href="parts.html"> PC Parts and How They Interact</a></h2>
+    <section id="parts" data-reveal="true">
+        <h2>PC Parts and How They Interact</h2>
         <p>Learn about the different components of a PC and how they work together to create a powerful system.</p>
+        <p>From CPUs and GPUs to storage and cooling solutions, I provide insights into choosing the right parts for your needs.</p>
     </section>
 
-    <section id="contact"data-reveal="true">
-        <link rel="stylesheet" href="h2styles.css">
-        <h2><a href="contact.html">Contact Me</a></h2>
-        <p>If you'd like to get in touch, please visit my <a href="contact.html">Contact Page</a>.</p>
+    <section id="faq" data-reveal="true">
+        <h2>FAQ</h2>
+        <p>Find answers to the most common questions about custom PC building and my services.</p>
+        <p>Have more questions? Feel free to reach out through the contact section below!</p>
     </section>
 
-    <section id="gallery"data-reveal="true">
-        <h2><a href="gallery.html">Gallery</a></h2>
-
+    <section id="gallery" data-reveal="true">
+        <h2>Gallery</h2>
         <p>Check out some of my recent builds and setups!</p>
         <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-            <img src="1.jpg" alt="Gallery Image 1" style="width: 300px; height: 300px; object-fit: cover;">
-            <img src="20250308_194048.jpg" alt="Gallery Image 2" style="width: 300px; height: 300px; object-fit: cover;">
-            
+            <img src="gallery/1.jpg" alt="Gallery Image 1" style="width: 300px; height: 300px; object-fit: cover;">
+            <img src="gallery/20250308_194048.jpg" alt="Gallery Image 2" style="width: 300px; height: 300px; object-fit: cover;">
         </div>
         <p style="text-align: center; margin-top: 10px;">
             <a href="gallery.html" style="text-decoration: none; color: #333;">View More Pictures</a>
@@ -71,9 +129,15 @@
     </section>
 
     <section id="process" data-reveal="true">
-        <link rel="stylesheet" href="h2styles.css">
-        <h2><a href="proccess.html">Process</a></h2>
+        <h2>Process</h2>
         <p>Discover the step-by-step process I follow to build your custom PC, ensuring quality and satisfaction at every stage.</p>
+        <p>From consultation to delivery, I keep you informed and involved throughout the process.</p>
+    </section>
+
+    <section id="contact" data-reveal="true">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, please visit my <a href="contact.html">Contact Page</a>.</p>
+        <p>Alternatively, you can email me directly at <a href="mailto:build.a.rig.pcs@gmail.com">build.a.rig.pcs@gmail.com</a>.</p>
     </section>
 
     <footer>
