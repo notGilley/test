@@ -10,15 +10,49 @@
         body {
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth; /* Enable smooth scrolling */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            background: url('background.png') no-repeat center center fixed; /* Replace 'background.png' with your image file */
+            background-size: cover; /* Ensures the image covers the entire viewport */
+            color: white; /* Ensure text is readable */
         }
+
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent header */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
         }
+
+        section#about {
+            background: url('about-bg.jpg') no-repeat center center; /* Replace with your image */
+            background-size: cover;
+        }
+
+        section#parts {
+            background: url('parts-bg.jpg') no-repeat center center; /* Replace with your image */
+            background-size: cover;
+        }
+
+        section#faq {
+            background: url('faq-bg.jpg') no-repeat center center; /* Replace with your image */
+            background-size: cover;
+        }
+
+        section#gallery {
+            background: url('gallery-bg.jpg') no-repeat center center; /* Replace with your image */
+            background-size: cover;
+        }
+
+        section#contact {
+            background: url('contact-bg.jpg') no-repeat center center; /* Replace with your image */
+            background-size: cover;
+        }
+
         section {
             height: 100vh; /* Full viewport height */
             display: flex;
@@ -27,47 +61,26 @@
             align-items: center;
             padding: 20px;
             text-align: center;
-            transform: translateY(150%); /* Start further below the viewport */
-            transition: transform 1s ease-in-out; /* Smooth transition */
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px); /* Start slightly below */
+            transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in/out */
         }
-        section:nth-child(odd) {
-            background-color: #0e0d0d;
+
+        section.visible {
+            opacity: 1; /* Fully visible when in view */
+            transform: translateY(0); /* Reset transform */
         }
-        section:nth-child(even) {
-            background-color: #141313;
-        }
-        section.revealed {
-            transform: translateY(0); /* Move into the viewport */
-        }
+
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent footer */
             color: white;
         }
     </style>
-    <script src="scroll-reveal.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const revealSections = () => {
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        section.classList.add('revealed');
-                    } else {
-                        section.classList.remove('revealed'); // Reset when out of view
-                    }
-                });
-            };
-            window.addEventListener('scroll', revealSections);
-            revealSections(); // Initial check
-        });
-    </script>
 </head>
 <body>
-    <link rel="stylesheet" href="h2styles.css">
-    <header style="background-color: #333; color: white; padding: 10px 20px; text-align: center;" data-reveal="true">
+    <header style="background-color: #333; color: white; padding: 10px 20px; text-align: center;">
         <a href="#home">
             <img src="bar.png" alt="Logo" class="logo">
         </a>
@@ -84,9 +97,8 @@
         </nav>
     </header>
 
-    <section id="about" data-reveal="true">
+    <section id="about">
         <h2>About Me</h2>
-        <br></br>
         <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 250px; text-align: left;">
                 <h3 style="text-align: center;">Snippet</h3>
@@ -96,7 +108,7 @@
                 <h3 style="text-align: center;">Education</h3>
                 <p>Bachelors in Computer Science - FSU</p>
                 <p>CompTIA A+ Certified</p>
-                <p> ITIL4 Certified</p>
+                <p>ITIL4 Certified</p>
             </div>
             <div style="flex: 1; min-width: 250px; text-align: left;">
                 <h3 style="text-align: center;">Goals</h3>
@@ -105,13 +117,284 @@
         </div>
     </section>
 
-    <section id="parts" data-reveal="true">
+    <section id="parts">
         <h2>PC Parts and How They Interact</h2>
         <p>Learn about the different components of a PC and how they work together to create a powerful system.</p>
-        <p>From CPUs and GPUs to storage and cooling solutions, I provide insights into choosing the right parts for your needs.</p>
+        <div id="parts-carousel" style="position: relative; width: 100%; overflow: hidden;">
+            <div id="carousel-content" style="display: flex; transition: transform 0.5s ease-in-out; width: calc(100%);">
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                      
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Intel</h4>
+                            <p><strong>Popular Socket Types:</strong> LGA 1200, LGA 1700</p>
+                            <p><strong>Supported Generations:</strong> 10th Gen (Comet Lake), 11th Gen (Rocket Lake), 12th Gen (Alder Lake), 13th Gen (Raptor Lake), 14th Gen (Meteor Lake)</p>
+                            <p><strong>Pros:</strong> High single-core performance, excellent for gaming, wide compatibility with motherboards.</p>
+                            <p><strong>Cons:</strong> Generally more expensive, limited overclocking on non-K series CPUs.</p>
+                        </div>  
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">CPU (Central Processing Unit)</h4>
+                            <p>The brain of the computer, responsible for executing instructions and processing data.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">AMD</h4>
+                            <p><strong>Popular Socket Types:</strong> AM4, AM5</p>
+                            <p><strong>Supported Generations:</strong> Ryzen 3000 (Zen 2), Ryzen 5000 (Zen 3), Ryzen 7000 (Zen 4), Ryzen 9000 (Zen 5)</p>
+                            <p><strong>Pros:</strong> Excellent multi-core performance, better value for productivity tasks, unlocked CPUs for overclocking.</p>
+                            <p><strong>Cons:</strong> Slightly lower single-core performance compared to Intel in some cases, fewer motherboard options for newer sockets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h3>GPU (Graphics Processing Unit)</h3>
+                    <p>Handles rendering of images, videos, and 3D graphics, essential for gaming and content creation.</p>
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">NVIDIA</h4>
+                            <p><strong>Board Partners:</strong> ASUS, MSI, Gigabyte, EVGA, Zotac, PNY</p>
+                            <p><strong>Pros:</strong> Excellent ray tracing performance, advanced features like DLSS (Deep Learning Super Sampling), wide range of options for gaming and professional use.</p>
+                            <p><strong>Cons:</strong> Generally more expensive, higher power consumption on high-end models.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">AMD</h4>
+                            <p><strong>Board Partners:</strong> ASUS, MSI, Gigabyte, Sapphire, PowerColor, XFX</p>
+                            <p><strong>Pros:</strong> Competitive pricing, strong performance in rasterization, good value for mid-range and budget builds.</p>
+                            <p><strong>Cons:</strong> Ray tracing performance lags behind NVIDIA, fewer features like DLSS (though FSR is improving).</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Intel</h4>
+                            <p><strong>Board Partners:</strong> ASUS, MSI, Gigabyte (limited availability as Intel GPUs are newer to the market)</p>
+                            <p><strong>Pros:</strong> Affordable entry-level options, improving driver support, good for casual gaming and productivity tasks.</p>
+                            <p><strong>Cons:</strong> Limited high-end options, smaller ecosystem compared to NVIDIA and AMD.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h3>RAM (Random Access Memory)</h3>
+                    <br></br>
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">DDR4</h4>
+                            <p>The most common type of RAM, offering high speed and efficiency. Suitable for most modern systems.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">DDR5</h4>
+                            <p>The latest generation of RAM, providing faster speeds and improved power efficiency compared to DDR4. Ideal for high-performance systems.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">SoDIMM (Small Outline Dual In-line Memory Module)</h4>
+                         <p> A compact form factor of RAM designed for laptops and small form factor PCs. It provides similar performance to standard DIMMs but in a smaller size.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h3>Storage</h3>
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">HDD (Hard Disk Drive)</h4>
+                            <p>Traditional storage device with spinning disks. It offers large capacities at a lower cost but is slower compared to SSDs.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">SSD (Solid State Drive)</h4>
+                            <p>Faster storage with no moving parts. It provides quicker boot times, faster file transfers, and improved application loading speeds.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">M.2</h4>
+                            <p>A form factor for SSDs that connects directly to the motherboard. It is compact and often faster than traditional SATA SSDs.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">NVMe (Non-Volatile Memory Express)</h4>
+                            <p>A protocol for SSDs that offers significantly faster data transfer speeds compared to SATA SSDs, ideal for high-performance tasks.</p>
+                        </div>
+                    </div>
+                    <img src="Storage.png" alt="Storage" style="width: 100%; max-width: 600px; display: block; margin: 20px auto;">
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h3>Motherboard</h3>
+                    <p>The backbone of the PC, connecting all components and allowing them to communicate.</p>
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Sizes</h4>
+                            <p><strong>E-ATX (Extended ATX):</strong> Larger than ATX, offers more space for additional components, ideal for high-end builds.</p>
+                            <p><strong>ATX:</strong> Standard size with multiple expansion slots, suitable for most builds.</p>
+                            <p><strong>Micro-ATX:</strong> Smaller than ATX, fewer expansion slots, ideal for compact builds.</p>
+                            <p><strong>Mini-ITX:</strong> Very compact, limited slots, great for small form factor systems.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Chipset Types</h4>
+                            <p><strong>Entry-Level:</strong> Basic features, suitable for budget builds (e.g., Intel H-series, AMD A-series).</p>
+                            <p><strong>Mid-Range:</strong> More connectivity and features, supports overclocking (e.g., Intel B-series, AMD B-series).</p>
+                            <p><strong>High-End:</strong> Advanced features, multiple PCIe lanes, ideal for enthusiasts (e.g., Intel Z-series, AMD X-series).</p>
+                        </div>
+                    </div>
+                    <img src="mbsize.png" alt="Motherboard Image" style="width: 100%; max-width: 600px; display: block; margin: 20px auto;">
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h3>Power Supply Unit (PSU)</h3>
+                    <p>Provides power to all components in your PC, ensuring stable and efficient operation.</p>
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">80 Plus</h4>
+                            <p>At least 80% efficiency at 20%, 50%, and 100% load.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">80 Plus Bronze</h4>
+                            <p>Higher efficiency than standard 80 Plus, typically around 82-85%.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">80 Plus Silver</h4>
+                            <p>Offers 85-88% efficiency.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">80 Plus Gold</h4>
+                            <p>Provides 87-90% efficiency, a popular choice for most builds.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">80 Plus Platinum</h4>
+                            <p>Delivers 89-92% efficiency, ideal for high-performance systems.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">80 Plus Titanium</h4>
+                            <p>The highest efficiency, reaching 90-94%, suitable for premium builds.</p>
+                        </div>
+                    </div>
+                    <img src="80.png" alt="PSU" style="width: 100%; max-width: 600px; display: block; margin: 20px auto;">
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Air Cooling</h4>
+                            <p>Uses fans and heatsinks to dissipate heat from components.</p>
+                            <p><strong>Pros:</strong> Affordable, easy to install, low maintenance.</p>
+                            <p><strong>Cons:</strong> Limited cooling efficiency, can be noisy.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Liquid Cooling</h4>
+                            <p>Uses liquid coolant to transfer heat away from components.</p>
+                            <p><strong>Pros:</strong> Superior cooling performance, quieter operation, ideal for overclocking.</p>
+                            <p><strong>Cons:</strong> More expensive, complex installation, potential for leaks.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Passive Cooling</h4>
+                            <p>Relies on heatsinks and natural airflow without fans.</p>
+                            <p><strong>Pros:</strong> Silent operation, no moving parts, low maintenance.</p>
+                            <p><strong>Cons:</strong> Limited cooling capacity, not suitable for high-performance systems.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate slides -->
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                      
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">Intel</h4>
+                            <p><strong>Popular Socket Types:</strong> LGA 1200, LGA 1700</p>
+                            <p><strong>Supported Generations:</strong> 10th Gen (Comet Lake), 11th Gen (Rocket Lake), 12th Gen (Alder Lake), 13th Gen (Raptor Lake), 14th Gen (Meteor Lake)</p>
+                            <p><strong>Pros:</strong> High single-core performance, excellent for gaming, wide compatibility with motherboards.</p>
+                            <p><strong>Cons:</strong> Generally more expensive, limited overclocking on non-K series CPUs.</p>
+                        </div>  
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">CPU (Central Processing Unit)</h4>
+                            <p>The brain of the computer, responsible for executing instructions and processing data.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h4 style="text-align: center;">AMD</h4>
+                            <p><strong>Popular Socket Types:</strong> AM4, AM5</p>
+                            <p><strong>Supported Generations:</strong> Ryzen 3000 (Zen 2), Ryzen 5000 (Zen 3), Ryzen 7000 (Zen 4), Ryzen 9000 (Zen 5)</p>
+                            <p><strong>Pros:</strong> Excellent multi-core performance, better value for productivity tasks, unlocked CPUs for overclocking.</p>
+                            <p><strong>Cons:</strong> Slightly lower single-core performance compared to Intel in some cases, fewer motherboard options for newer sockets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center;">
+                    <h3>Slide 2</h3>
+                    <p>Content for Slide 2</p>
+                </div>
+                <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center;">
+                    <h3>Slide 3</h3>
+                    <p>Content for Slide 3</p>
+                </div>
+            </div>
+            <button id="prev-btn" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: none; border: none; color: white; font-size: 2em; cursor: pointer;">&#8249;</button>
+            <button id="next-btn" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: none; border: none; color: white; font-size: 2em; cursor: pointer;">&#8250;</button>
+        </div>
     </section>
+    
+    <script>
+        const carousel = document.getElementById('carousel-content');
+        const slides = document.querySelectorAll('.part-slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentIndex = 0;
+        const delay = 15000; // Delay between scrolls (3 seconds)
 
-    <section id="faq" data-reveal="true">
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carousel.style.transition = 'transform 0.5s ease-in-out';
+            carousel.style.transform = `translateX(${offset}%)`;
+
+            // Seamlessly reset to the beginning of the original slides
+            if (currentIndex === slides.length - slides.length / 2) {
+                setTimeout(() => {
+                    carousel.style.transition = 'none'; // Disable transition for seamless reset
+                    currentIndex = 0;
+                    carousel.style.transform = `translateX(0)`;
+                }, 40000); // Match the transition duration
+            }
+        }
+
+        function autoScroll() {
+            currentIndex++;
+            if (currentIndex >= slides.length) {
+                currentIndex = 0; // Reset to the first slide
+            }
+            updateCarousel();
+        }
+
+        let autoScrollInterval = setInterval(autoScroll, delay);
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = setInterval(autoScroll, delay);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = setInterval(autoScroll, delay);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                threshold: 0.7, // Trigger when 50% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Add the visible class
+                    } else {
+                        entry.target.classList.remove('visible'); // Remove the visible class
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <section id="faq">
         <h2>FAQ</h2>
         <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 250px; text-align: left;">
@@ -131,8 +414,7 @@
                 <p>No, I build PCs for various purposes, including gaming, content creation, and general use.</p>
             </div>
         </div>
-    </section>
-<br></br>
+    </section>        
     <section id="gallery" data-reveal="true">
         <h2>Gallery</h2>
         <p>Check out some of my recent builds and setups!</p>
