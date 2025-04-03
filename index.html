@@ -98,6 +98,7 @@
     </header>
 
     <section id="about">
+        <link rel="stylesheet" href="h2styles.css">
         <h2>About Me</h2>
         <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 250px; text-align: left;">
@@ -118,7 +119,7 @@
     </section>
 
     <section id="parts">
-        <h2>PC Parts and How They Interact</h2>
+        <h2>PC Parts 101</h2>
         <p>Learn about the different components of a PC and how they work together to create a powerful system.</p>
         <div id="parts-carousel" style="position: relative; width: 100%; overflow: hidden;">
             <div id="carousel-content" style="display: flex; transition: transform 0.5s ease-in-out; width: calc(100%);">
@@ -148,6 +149,7 @@
                 <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <h3>GPU (Graphics Processing Unit)</h3>
                     <p>Handles rendering of images, videos, and 3D graphics, essential for gaming and content creation.</p>
+                    <br></br>
                     <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
                         <div style="flex: 1; min-width: 250px; text-align: left;">
                             <h4 style="text-align: center;">NVIDIA</h4>
@@ -232,6 +234,7 @@
                 </div>
                 <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <h3>Power Supply Unit (PSU)</h3>
+                    <br></br>
                     <p>Provides power to all components in your PC, ensuring stable and efficient operation.</p>
                     <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
                         <div style="flex: 1; min-width: 250px; text-align: left;">
@@ -264,6 +267,9 @@
                 <div class="part-slide" style="min-width: 100%; padding: 0px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
                         <div style="flex: 1; min-width: 250px; text-align: left;">
+                            <h3 style="text-align: center;">Cooling</h3>
+                            <p>Essential for maintaining optimal temperatures and performance of your components.</p>
+                            <br></br>
                             <h4 style="text-align: center;">Air Cooling</h4>
                             <p>Uses fans and heatsinks to dissipate heat from components.</p>
                             <p><strong>Pros:</strong> Affordable, easy to install, low maintenance.</p>
@@ -375,7 +381,7 @@
 
             const observerOptions = {
                 root: null, // Use the viewport as the root
-                threshold: 0.7, // Trigger when 50% of the section is visible
+                threshold: 0.1, // Trigger when 50% of the section is visible
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -396,6 +402,7 @@
 
     <section id="faq">
         <h2>FAQ</h2>
+        <br></br>
         <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 250px; text-align: left;">
                 <h3 style="text-align: center;">What is the typical build time?</h3>
@@ -403,7 +410,7 @@
             </div>
             <div style="flex: 1; min-width: 250px; text-align: left;">
                 <h3 style="text-align: center;">Do you offer warranties?</h3>
-                <p>As of right, I can not provide a personal warranties on the components, but I am willing to work with companies providing the hardware to go throught thhe RMA process for you and repair/replace any faulty hardware that was aquired.</p>
+                <p>As of right, I can not provide a personal warranties on the components, but I am willing to work with companies providing the hardware to go throught the RMA process for you and repair/replace any faulty hardware that was aquired.</p>
             </div>
             <div style="flex: 1; min-width: 250px; text-align: left;">
                 <h3 style="text-align: center;">Can I provide my own parts?</h3>
@@ -429,8 +436,31 @@
 
     <section id="process" data-reveal="true">
         <h2>Process</h2>
-        <p>Discover the step-by-step process I follow to build your custom PC, ensuring quality and satisfaction at every stage.</p>
-        <p>From consultation to delivery, I keep you informed and involved throughout the process.</p>
+        <br></br>
+        <p>My process for building custom PCs is straightforward and transparent. Here's how it works:</p>
+        <br></br>
+        <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+            <h3 style="text-align: center;">Consultation</h3>
+            <p>We start with a detailed consultation to understand your needs, preferences, and budget for your custom PC.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+            <h3 style="text-align: center;">Planning</h3>
+            <p>Based on your requirements, I create a tailored plan, selecting the best components for your build.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+            <h3 style="text-align: center;">Assembly</h3>
+            <p>Once the parts are finalized, I carefully assemble your PC, ensuring every component is installed correctly.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+            <h3 style="text-align: center;">Testing</h3>
+            <p>After assembly, I rigorously test the system for performance, stability, and compatibility.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; text-align: left;">
+            <h3 style="text-align: center;">Delivery</h3>
+            <p>Once testing is complete, I deliver your custom PC, ready to use, along with any necessary setup assistance.</p>
+            </div>
+        </div>
     </section>
 
     <section id="contact" data-reveal="true">
