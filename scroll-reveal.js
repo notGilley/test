@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const revealSections = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    const sections = document.querySelectorAll('section');
+
+    const observerOptions = {
+        root: null, // Use the viewport as the root
+        threshold: 0.1, // Trigger when 10% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
+                entry.target.classList.add('visible'); // Add the visible class
             } else {
-                entry.target.classList.remove('revealed');
+                entry.target.classList.remove('visible'); // Remove the visible class
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
 
-    revealSections.forEach(section => revealObserver.observe(section));
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
 });
