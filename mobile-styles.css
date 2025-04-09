@@ -84,12 +84,12 @@ footer {
 
     section {
         height: auto; /* Ensure sections adjust to content */
-        padding: 5px;
+        padding: 50px;
     }
 
     section div {
         flex-direction: column; /* Stack content vertically */
-        gap: 5px; /* Reduce spacing for smaller screens */
+        gap: 50px; /* Reduce spacing for smaller screens */
     }
 
     section div img {
