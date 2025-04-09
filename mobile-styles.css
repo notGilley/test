@@ -32,7 +32,8 @@ nav ul li {
 }
 
 section {
-    padding: 10px;
+    min-height: 50vh; /* Ensure sections are at least half the viewport height */
+    padding: 20px;
     text-align: center;
     position: relative; /* Ensure sections are positioned relative to the document flow */
 }
@@ -110,12 +111,12 @@ footer {
 
     section {
         height: auto; /* Ensure sections adjust to content */
-        padding: 50px;
+        padding: 5px;
     }
 
     section div {
         flex-direction: column; /* Stack content vertically */
-        gap: 50px; /* Reduce spacing for smaller screens */
+        gap: 5px; /* Reduce spacing for smaller screens */
     }
 
     section div img {
