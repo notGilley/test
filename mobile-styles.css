@@ -7,8 +7,18 @@ body {
 }
 
 header {
-    padding: 10px;
+    padding: 5px 10px; /* Reduce padding */
     text-align: center;
+}
+
+header h1 {
+    font-size: 1.5em; /* Reduce font size */
+    margin: 0; /* Remove extra margin */
+}
+
+header img.logo {
+    max-width: 50px; /* Ensure the logo is smaller */
+    height: auto;
 }
 
 nav ul {
@@ -43,8 +53,16 @@ footer {
         font-size: 14px;
     }
 
+    header {
+        padding: 5px; /* Further reduce padding */
+    }
+
     header h1 {
-        font-size: 1.5em;
+        font-size: 1.2em; /* Smaller font size for tablets */
+    }
+
+    header img.logo {
+        max-width: 40px; /* Smaller logo for tablets */
     }
 
     nav ul li {
@@ -70,8 +88,16 @@ footer {
 
 /* For screens smaller than 480px */
 @media (max-width: 480px) {
+    header {
+        padding: 5px; /* Minimal padding for small screens */
+    }
+
     header h1 {
-        font-size: 1.2em;
+        font-size: 1em; /* Smallest font size for phones */
+    }
+
+    header img.logo {
+        max-width: 30px; /* Smallest logo size */
     }
 
     nav ul li {
@@ -84,12 +110,12 @@ footer {
 
     section {
         height: auto; /* Ensure sections adjust to content */
-        padding: 10px;
+        padding: 50px;
     }
 
     section div {
         flex-direction: column; /* Stack content vertically */
-        gap: 10px; /* Reduce spacing for smaller screens */
+        gap: 50px; /* Reduce spacing for smaller screens */
     }
 
     section div img {
