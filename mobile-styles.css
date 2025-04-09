@@ -55,6 +55,7 @@ footer {
     }
 
     header {
+        position: static; /* Make the header scroll with the page */
         padding: 5px; /* Further reduce padding */
     }
 
@@ -90,6 +91,7 @@ footer {
 /* For screens smaller than 480px */
 @media (max-width: 480px) {
     header {
+        position: static; /* Ensure the header scrolls with the page */
         padding: 5px; /* Minimal padding for small screens */
     }
 
