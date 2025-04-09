@@ -24,6 +24,7 @@ nav ul li {
 section {
     padding: 10px;
     text-align: center;
+    position: relative; /* Ensure sections are positioned relative to the document flow */
 }
 
 section img {
@@ -51,10 +52,13 @@ footer {
     }
 
     section {
-        padding: 5px;
+        height: auto; /* Allow sections to adjust to their content */
+        padding: 10px;
     }
 
     section div {
+        display: flex;
+        flex-wrap: wrap; /* Allow content to wrap */
         flex-direction: column; /* Stack content vertically */
         gap: 10px; /* Add spacing between items */
     }
@@ -78,9 +82,14 @@ footer {
         font-size: 12px;
     }
 
+    section {
+        height: auto; /* Ensure sections adjust to content */
+        padding: 5px;
+    }
+
     section div {
         flex-direction: column; /* Stack content vertically */
-        gap: 5px;
+        gap: 5px; /* Reduce spacing for smaller screens */
     }
 
     section div img {
