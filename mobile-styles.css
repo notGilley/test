@@ -53,6 +53,15 @@ footer {
     section {
         padding: 5px;
     }
+
+    section div {
+        flex-direction: column; /* Stack content vertically */
+        gap: 10px; /* Add spacing between items */
+    }
+
+    section div img {
+        width: 100%; /* Ensure images fit the screen */
+    }
 }
 
 /* For screens smaller than 480px */
@@ -67,6 +76,15 @@ footer {
 
     footer {
         font-size: 12px;
+    }
+
+    section div {
+        flex-direction: column; /* Stack content vertically */
+        gap: 5px;
+    }
+
+    section div img {
+        width: 100%; /* Ensure images fit the screen */
     }
 }
 
